@@ -2,7 +2,7 @@
 #define SPONGE_LIBSPONGE_BYTE_STREAM_HH
 
 #include <string>
-
+#include <queue>
 //! \brief An in-order byte stream.
 
 //! Bytes are written on the "input" side and read from the "output"
@@ -17,10 +17,25 @@ class ByteStream {
     // that's a sign that you probably want to keep exploring
     // different approaches.
 
+//   　這裏需要初始化一個buffer
+//    注意這裏的緩衝區需要通過一個隊列實現
+
+    //　這個參數表示字符流的大小
+    size_t buffer_capacity;
+//    由於需要先進先讀，所以需要使用隊列來模擬緩存
+//    這個是最核心的數據結構
+//    這裏使用的是deque來模擬
+    std::deque<char> _buffer;
+//    這個
+    size_t written_size;
+//    讀大小這個表示最終在字節流中讀的大小
+    size_t read_size;
+//    還需要一個值表示是否到達輸入流的尾部
+    bool _end_input;
     bool _error{};  //!< Flag indicating that the stream suffered an error.
 
   public:
-    //! Construct a stream with room for `capacity` bytes.
+    //! Construct a stream with room for `buffer_capacity` bytes.
     ByteStream(const size_t capacity);
 
     //! \name "Input" interface for the writer
@@ -46,7 +61,8 @@ class ByteStream {
 
     //! Peek at next "len" bytes of the stream
     //! \returns a string
-    std::string peek_output(const size_t len) const;
+    std::string peek_output(const size_t len) ;
+
 
     //! Remove bytes from the buffer
     void pop_output(const size_t len);
