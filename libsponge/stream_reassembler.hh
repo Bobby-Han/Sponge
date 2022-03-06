@@ -13,7 +13,6 @@ using namespace std;
 class StreamReassembler {
   private:
     // Your code here -- add private members as necessary.
-//    用這個來表示沒有整理好的字符串　一定要注意這些字符串中間會有斷層　這些字符串的順序是由index完全確定的
 //    搞一個小根堆存放斷層
     priority_queue<pair<size_t ,string>,vector<pair<size_t ,string>>,greater<>> unassembled;
 //    這個表示已經整理好的字符串
@@ -25,7 +24,6 @@ class StreamReassembler {
 //    這個表示已經整理過的字符串中的最大idx
     size_t assembled_maxIdx;
     bool hasEof;
-    size_t eofIdx;
     string eofStr;
 
   public:

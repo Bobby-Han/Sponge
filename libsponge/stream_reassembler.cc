@@ -11,7 +11,7 @@ void DUMMY_CODE(Targs &&... /* unused */) {}
 
 using namespace std;
 // 初始化
-StreamReassembler::StreamReassembler(const size_t capacity) : unassembled(),assembled(),_output(capacity), _capacity(capacity), assembled_maxIdx(0),hasEof(false),eofIdx(0),eofStr(){}
+StreamReassembler::StreamReassembler(const size_t capacity) : unassembled(),assembled(),_output(capacity), _capacity(capacity), assembled_maxIdx(0),hasEof(false),eofStr(){}
 
 //! \details This function accepts a substring (aka a segment) of bytes,
 //! possibly out-of-order, from the logical stream, and assembles any newly
@@ -20,7 +20,6 @@ void StreamReassembler::push_substring(const string &data, const size_t index, c
 //    怎樣判斷eof是一個問題
     if(eof){
         hasEof= true;
-        eofIdx=index;
         eofStr=data;
     }
     if(index<=assembled_maxIdx){
