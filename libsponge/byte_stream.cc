@@ -15,7 +15,7 @@ using namespace std;
 ByteStream::ByteStream(size_t capacity): buffer_capacity(capacity),_buffer(),written_size(0),read_size(0),_end_input(false){}
 
 size_t ByteStream::write(const string &data) {
-    if(_end_input){
+    if(eof()){
         return 0;
     }
 //    得到需要寫入的長度

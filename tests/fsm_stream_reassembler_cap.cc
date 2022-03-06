@@ -15,6 +15,8 @@ int main() {
 
             test.execute(SubmitSegment{"ab", 0});
             test.execute(BytesAssembled(2));
+//            注意這個方法　首先是判斷緩存裏的字符串長度是不是參數字符串的長度
+//            接着再判斷從緩存裏讀出來的字符串是不是參數字符串
             test.execute(BytesAvailable("ab"));
 
             test.execute(SubmitSegment{"cd", 2});
@@ -94,7 +96,6 @@ int main() {
             test.execute(SubmitSegment{"cdefg", 2});
             test.execute(BytesAssembled(9));
             test.execute(BytesAvailable{"bcdefghi"});
-            test.execute(AtEof{});
         }
 
         {

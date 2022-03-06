@@ -49,12 +49,14 @@ int main() {
             }
 
             auto result = read(buf);
+
             if (buf.stream_out().bytes_written() != offset) {  // read bytes
                 throw runtime_error("test 2 - number of RX bytes is incorrect");
             }
             if (!equal(result.cbegin(), result.cend(), d.cbegin())) {
                 throw runtime_error("test 2 - content of RX bytes is incorrect");
             }
+
         }
     } catch (const exception &e) {
         cerr << "Exception: " << e.what() << endl;

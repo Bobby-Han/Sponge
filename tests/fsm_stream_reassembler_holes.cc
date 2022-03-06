@@ -2,12 +2,9 @@
 #include "fsm_stream_reassembler_harness.hh"
 #include "stream_reassembler.hh"
 #include "util.hh"
-
 #include <exception>
 #include <iostream>
-
 using namespace std;
-
 int main() {
     try {
         {
@@ -22,7 +19,6 @@ int main() {
 
         {
             ReassemblerTestHarness test{65000};
-
             test.execute(SubmitSegment{"b", 1});
             test.execute(SubmitSegment{"a", 0});
 

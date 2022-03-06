@@ -1,13 +1,13 @@
 Lab 1 Writeup
 =============
 
-My name: [your name here]
+My name: 韓陳旭
 
-My SUNet ID: [your sunetid here]
+My SUNet ID: 201250037
 
-I collaborated with: [list sunetids here]
+I collaborated with: 韓陳旭
 
-I would like to thank/reward these classmates for their help: [list sunetids here]
+I would like to thank/reward these classmates for their help: 韓陳旭
 
 This lab took me about [n] hours to do. I [did/did not] attend the lab session.
 
